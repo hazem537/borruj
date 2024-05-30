@@ -1,19 +1,22 @@
 <template>
-  <div class="image-container flex opacity-100 justify-center items-center bg-white">
+  <div
+    class="image-container flex opacity-100 justify-center items-center text-black bg-white">
     <img
       v-for="(img, index) in images"
       :key="index"
       :src="img"
       :class="{ active: index === activeIndex }"
       alt="" />
-    <div class="z-10 text-2xl flex flex-col items-center justify-center gap-10 w-3/4 h-full">
-      <span class="text-5xl text-amber-500"> بروج </span>
+    <div
+      class="z-10 text-2xl flex flex-col items-center justify-center gap-10 w-3/4 h-full">
+      <p>
+        اهلا بك في
+        <span class="text-7xl text-amber-500"> بروج </span>
+      </p>
       <p>طريقك إلى مكة والمدينة بكل سهولة</p>
-      <div class="bg-red rounded-xl bg-amber-400  px-4 py-2 flex flex-col gap-5">
-      
+      <div class="bg-red rounded-xl bg-amber-400 px-4 py-2 flex flex-col gap-5">
         <p class="text-xl text-black">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora fuga
-          
         </p>
       </div>
     </div>
