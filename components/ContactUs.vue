@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center items-center text-sm md:text-base p-4">
     <div
-      class="flex flex-col gap-3 bg-black rounded-xl border items-center border-amber-500 p-5">
+      class="flex flex-col gap-3 bg-white/55 dark:bg-black rounded-xl border items-center border-amber-500 p-5">
       <h2 class="text-2xl text-amber-500 text-center">اتصل بنا</h2>
       <p>
         نسعد بتواصلكم معنا لأي استفسارات أو حجوزات. يرجى ملء النموذج أدناه
