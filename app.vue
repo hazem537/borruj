@@ -1,7 +1,9 @@
 <template>
-  <div class="main bg-contain w-full  bg-opacity-50" dir="rtl">
+  <div class="main bg-contain w-full   " dir="rtl">
+<div class="dark:bg-black/70  bg-white/70">
 
-      <NuxtPage/>
+  <NuxtPage/>
+</div>
   </div>
 </template>
 
@@ -11,7 +13,9 @@
 </script>
 
 <style scoped >
-.main::before{
-  @apply bg-[url('/pattern_bg.png')]
+.main {
+  background-image: url('/public/pattern_bg.png');
+  /* opacity: ; */
+  
 }
 </style>

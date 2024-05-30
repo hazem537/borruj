@@ -29,15 +29,15 @@
     </div>
     <div class="hidden gap-3 justify-center grow xl:grow-0 text-3xl md:flex">
       <div
-        class="group w-[45px] h-[45px] rounded-full bg-white/55 dark:bg-black/55 flex justify-center items-center hover:bg-amber-500 duration-300">
+        class="group w-[45px] h-[45px] rounded-full bg-white/55 dark:bg-black/55 flex justify-center items-center dark:hover:bg-amber-500  hover:bg-amber-500 duration-300">
         <UIcon name="i-mdi-facebook group-hover:text-black " />
       </div>
       <div
-        class="group w-[45px] h-[45px] rounded-full bg-white/55 dark:bg-black/55 flex justify-center items-center hover:bg-amber-500 duration-300">
+        class="group w-[45px] h-[45px] rounded-full bg-white/55 dark:bg-black/55 flex justify-center items-center dark:hover:bg-amber-500 hover:bg-amber-500 duration-300">
         <UIcon name="i-mdi-whatsapp group-hover:text-black " />
       </div>
       <div
-        class="group w-[45px] h-[45px] rounded-full bg-white/55 dartk:bg-black/55 flex justify-center items-center hover:bg-amber-500 duration-300">
+        class="group w-[45px] h-[45px] rounded-full bg-white/55 dark:bg-black/55 flex justify-center items-center dark:hover:bg-amber-500 hover:bg-amber-500 duration-300">
         <UIcon name="i-mdi-snapchat group-hover:text-black " />
       </div>
     </div>
