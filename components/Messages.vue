@@ -16,7 +16,7 @@
             <div class="flex gap-5">
               <p>
                 <span class="text-amber-500 font-semibold"> الاسم </span>
-                {{ doc.name }}
+                {{ doc.name }} 
               </p>
               <p>
                 <span class="text-amber-500 font-semibold"> الايميل </span>
@@ -26,6 +26,7 @@
                 <span class="text-amber-500 font-semibold"> العنوان </span>
                 {{ doc.object }}
               </p>
+              <UButton label="مسح" color="red"  @click="onDelete(doc.id)"/>
             </div>
             <div></div>
           </div>
@@ -40,14 +41,24 @@
 </template>
 
 <script lang="ts" setup>
+import { _transitionDelay } from "#tailwind-config/theme";
 import { collection, doc, getDoc ,deleteDoc } from "firebase/firestore";
 import { useCollection } from "vuefire";
 const db = useFirestore();
 
 const collecRef = collection(db, "messages");
 const { data: docSnap, error, pending } = await useCollection(collecRef);
+const toast =useToast ()
 const onDelete=async(id:string)=>{
-  await deleteDoc(doc(db, "messages", id));
+  try{
+    await deleteDoc(doc(db, "messages", id));
+  toast.add({title:"تم مسح  الرساله"})
+  }catch(err){
+    toast.add({title:"حدث خطاء ما   "})
+
+  }
+
+
 }
 </script>
 
