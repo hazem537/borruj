@@ -47,9 +47,11 @@ watch(ads, (newAds) => {
     state.show = newAds.show || false;
   }
 });
+const toast = useToast()
 const onSubmit = () => {
   try {
     updateDoc(docu, { data: state.data, show: state.show });
+    toast.add({title:"تم التعديل بنجاح"})
   } catch (err) {}
 };
 </script>
