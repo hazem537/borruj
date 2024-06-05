@@ -1,5 +1,5 @@
 <template>
-  <Nav class="w-full mx-auto py-2  fixed  mt-3  top-0 z-50" id="nav" />
+
   <div
     class="text-stone-900 dark:text-stone-200 font-semibold flex flex-col gap-3   snap-mandatory "
     id="container">
@@ -13,6 +13,7 @@
 
 <script lang="ts" setup>
 // import Hero from '~/components/hero.vue';
+
 </script>
 
 <style></style>

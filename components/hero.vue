@@ -14,9 +14,10 @@
         <span class="text-7xl text-amber-500"> بروج </span>
       </p>
       <p>طريقك إلى مكة والمدينة بكل سهولة</p>
-      <div class="bg-red rounded-xl bg-amber-400 px-4 py-2 flex flex-col gap-5">
-        <p class="text-xl text-black">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora fuga
+      <div class="bg-red rounded-xl bg-amber-400 px-4 py-2 flex flex-col gap-5" v-if="ads?.show">
+        <p class="text-xl text-black" > 
+         {{ ads.data }}
+          <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora fuga -->
         </p>
       </div>
     </div>
@@ -45,6 +46,11 @@ const startAnimation = () => {
 onMounted(() => {
   startAnimation();
 });
+
+import { collection, doc,  } from "firebase/firestore";
+const db = useFirestore();
+
+const ads = useDocument(doc(collection(db, 'assets'), 'lEJtgJXfx9SGM0COpYJB'))
 </script>
 
 <style scoped>

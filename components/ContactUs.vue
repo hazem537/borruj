@@ -30,7 +30,7 @@
             <UTextarea v-model="state.message" />
           </UFormGroup>
 
-          <UButton block type="submit" color="amber"> ارسل لنا </UButton>
+          <UButton block type="submit" color="amber" :loading="pending"> ارسل لنا </UButton>
         </UForm>
       </div>
       <div class="flex">
@@ -53,6 +53,7 @@
 
 <script lang="ts" setup>
 import { object, string } from "yup";
+const pending = ref(false)
 const schema = object({
   name: string().required(),
   email: string().email().required(),
@@ -60,7 +61,22 @@ const schema = object({
   message: string().required(),
 });
 const state = reactive({ name: "", email: "", object: "", message: "" });
-const onSubmit = () => {};
+import {  setDoc,addDoc,doc, collection } from "firebase/firestore";
+const db = useFirestore();
+// const messageCollection = collection(db,"messages")
+const toast=useToast();
+const onSubmit = async() => {
+  try{
+   pending.value=true 
+    const docref=await addDoc(collection(db,'messages'),state)
+    // console.log("HELLO",docref.id)
+  }catch(error){
+console.log(error)
+  }finally{
+    pending.value=false
+  }
+
+};
 </script>
 
 <style></style>
