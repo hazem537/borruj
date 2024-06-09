@@ -2,7 +2,7 @@
   <div
     dir="rtl"
     class="flex flex-col md:flex-row items-center md:justify-between duration-300 transition-all bg-white/75 dark:bg-black/75 rounded-full px-2">
-    <div class="flex items-center justify-center gap-5 grow w-1/3">
+    <div class="flex items-center justify-center gap-5 grow ">
       <ULink to="/#container" active-class="" inactive-class="text-gray-500">
         <img src="/logo (2).svg" class="h-20" />
       </ULink>
@@ -61,7 +61,7 @@
         >تسجيل الخروج
       </ULink>
     </div>
-    <div
+    <!-- <div
       class="hidden gap-3 justify-center grow xl:grow-0 text-3xl w-1/3 md:flex">
       <div
         class="group w-[45px] h-[45px] rounded-full bg-white/55 dark:bg-black/55 flex justify-center items-center dark:hover:bg-amber-500 hover:bg-amber-500 duration-300">
@@ -75,7 +75,7 @@
         class="group w-[45px] h-[45px] rounded-full bg-white/55 dark:bg-black/55 flex justify-center items-center dark:hover:bg-amber-500 hover:bg-amber-500 duration-300">
         <UIcon name="i-mdi-snapchat group-hover:text-black " />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

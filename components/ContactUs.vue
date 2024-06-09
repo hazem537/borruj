@@ -33,13 +33,19 @@
           <UButton block type="submit" color="amber" :loading="pending"> ارسل لنا </UButton>
         </UForm>
       </div>
-      <div class="flex">
+      <div class="flex flex-col md:flex-row">
         <div class="flex flex-col p-2 gap-2">
           <h2 class="text-2xl text-amber-500 text-center">تفاصيل الاتصال</h2>
           <p class="">
-            الهاتف: +966 12 345 6789
+            <span class="text-amber-500">
+              الهاتف
+            </span>
+            : 0507583933
             <br />
-            البريد الإلكتروني: info@company.com
+            <span class="text-amber-500">
+              البريد الإلكتروني
+            </span>
+            :Buroujtourism@gmail.com
           </p>
         </div>
         <div class="flex flex-col p-2 gap-2">

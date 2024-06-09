@@ -28,11 +28,31 @@
 import { ref, onMounted } from "vue";
 
 const images = [
-  "https://www.emaaraldiyafa.com/Content/img/1.jpg",
-  "https://www.emaaraldiyafa.com/Content/img/2.jpg",
-  "https://www.emaaraldiyafa.com/Content/img/4.jpg",
-  "https://www.emaaraldiyafa.com/Content/img/6.jpg",
-  "https://www.emaaraldiyafa.com/Content/img/5.jpg",
+  "/9.jpeg",
+  "/10.jpeg",
+  "/11.jpeg",
+  "/13.jpeg",
+  "/14.jpeg",
+  "/15.jpeg",
+  "/16.jpeg",
+  "/17.jpeg",
+  "/18.jpeg",
+  "/19.jpeg",
+  "/test/1.jpeg",
+  "/test/2.jpeg",
+  "/test/3.jpeg",
+  "/test/4.jpeg",
+  "/test/5.jpeg",
+  "/test/6.jpeg",
+  "/test/7.jpeg",
+  "/test/8.jpeg",
+  "/test/20.jpeg",
+
+
+  // "https://www.emaaraldiyafa.com/Content/img/2.jpg",
+  // "https://www.emaaraldiyafa.com/Content/img/4.jpg",
+  // "https://www.emaaraldiyafa.com/Content/img/6.jpg",
+  // "https://www.emaaraldiyafa.com/Content/img/5.jpg",
 ];
 
 const activeIndex = ref(0);
