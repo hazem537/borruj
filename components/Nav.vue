@@ -2,15 +2,20 @@
   <div
     dir="rtl"
     class="flex flex-col md:flex-row items-center md:justify-between duration-300 transition-all bg-white/75 dark:bg-black/75 rounded-full px-2">
+   
+
+    
     <div class="flex items-center justify-center gap-5 grow ">
       <ULink to="/#container" active-class="" inactive-class="text-gray-500">
-        <img src="/logo (2).svg" class="h-20" />
+        <img src="/log.svg" class="h-20" />
       </ULink>
 
       <h2 class="text-amber-500 text-2xl">المميزة للسياحة</h2>
     </div>
+
+    
     <div
-      class="gap-5 justify-center grow xl:grow-0 hidden md:flex md:order-first w-1/3">
+      class="gap-5 justify-center grow xl:grow-0 hidden md:flex w-1/3">
       <ULink
         v-if="!user"
         active-class=""
@@ -76,6 +81,8 @@
         <UIcon name="i-mdi-snapchat group-hover:text-black " />
       </div>
     </div> -->
+
+
   </div>
 </template>
 
