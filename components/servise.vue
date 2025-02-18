@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col gap-3 items-center md:justify-center p-5 text-sm md:text-base overflow-scroll md:overflow-hidden">
+    class="flex flex-col gap-3 items-center md:justify-center w-[80%] p-[25px] text-sm md:text-base overflow-scroll md:overflow-hidden">
     <div class="flex md:flex-row flex-col justify-between gap-3">
       <div
         class="flex flex-col md:flex-row gap-1 justify-between w-full  dark:bg-black bg-white/55 rounded-lg border border-yellow-400">

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-10 justify-center items-center p-4 text-sm md:text-base">
+    <div class="flex flex-col gap-10 justify-center items-center p-4 text-sm md:text-base w-[80%] p-[25px]">
         <div class="flex flex-col md:flex-row gap-5 justify-between w-10/12 p-3 dark:bg-black bg-white/55 rounded-lg border border-yellow-400">
             <div class="flex flex-col gap-5 grow">
                 <h2 class="text-2xl text-amber-500 self-center">من نحن</h2>
