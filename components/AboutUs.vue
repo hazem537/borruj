@@ -10,23 +10,7 @@
               </span>     في مكة المكرمة، ونفخر بأن نكون واحدة من الشركات الرائدة حجز الغرف الفندقية في المملكة العربية السعودية.
                 </p>               
                   
-                    <!-- <div class="flex  flex-col text-center gap-5 justify-between ">
-                        <!-- <div class="flex flex-col gap-5">
-                            <h2 class="text-2xl text-amber-500 self-center">رؤيتنا</h2>
-                            <p>
-                                تقديم تجربة دينية وروحية فريدة تضمن الراحة والسكينة لزوار الحرمين الشريفين.
-                            </p>
-    
-                        </div> -->
-                        <!-- <div class="flex flex-col gap-5">
-                            <h2 class="text-2xl text-amber-500 self-center">رسالتنا</h2>
-                            <p>
-                                توفير خدمات عالية الجودة بأسعار تنافسية، وضمان راحة ورضا عملائنا من خلال الاهتمام بكل تفاصيل رحلتهم.
-                            </p>
-    
-                        </div> -->
-                    </div> -->
-    
+          
                
             </div>
         </div>
