@@ -8,7 +8,7 @@
                     <span class="text-amber-500 text-lg md:text-2xl" >
                           بروج
               </span>     في مكة المكرمة، ونفخر بأن نكون واحدة من الشركات الرائدة حجز الغرف الفندقية في المملكة العربية السعودية.
-                  
+                </p>               
                   
                     <!-- <div class="flex  flex-col text-center gap-5 justify-between ">
                         <!-- <div class="flex flex-col gap-5">
@@ -27,7 +27,7 @@
                         </div> -->
                     </div> -->
     
-                </p>
+               
             </div>
         </div>
     </div>
