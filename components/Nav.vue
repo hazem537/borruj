@@ -16,15 +16,7 @@
     
     <div
       class="gap-5 justify-center grow xl:grow-0 hidden md:flex w-1/3">
-      <ULink
-        v-if="!user"
-        active-class=""
-        inactive-class="text-gray-500"
-        to="/#aboutUs"
-        class="hover:bg-amber-400 px-2 py-2 rounded-xl duration-300"
-        >من نحن</ULink
-      >
-
+      
       <ULink
         v-if="!user"
         active-class=""
@@ -41,7 +33,17 @@
         class="hover:bg-amber-400 px-2 py-2 rounded-xl duration-300"
         >تواصل معنا</ULink
       >
-      <!-- <ULink
+      <!--
+      <ULink
+        v-if="!user"
+        active-class=""
+        inactive-class="text-gray-500"
+        to="/#aboutUs"
+        class="hover:bg-amber-400 px-2 py-2 rounded-xl duration-300"
+        >من نحن</ULink
+      >
+
+      <ULink
         v-if="!user"
         active-class=""
         inactive-class="text-gray-500"
