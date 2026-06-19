@@ -50,7 +50,10 @@
         </div>
         <div class="flex flex-col p-2 gap-2">
           <h2 class="text-2xl text-amber-500 text-center">ساعات العمل</h2>
-          <p class="">السبت - الخميس: 9:00 صباحًا - 6:00 مساءً</p>
+          <p class="">
+          العمل طوال أيام الأسبوع
+خلال 24 ساعة للرد على الطلبات والاستفسارات والشكاو  
+          </p>
         </div>
       </div>
     </div>
