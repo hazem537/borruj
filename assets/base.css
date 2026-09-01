@@ -1,7 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
-body{
-    @apply snap-mandatory scroll-smooth ;
-    font-family:"Readex pro"
+:root {
+  font-family: 'Readex Pro', sans-serif;
+  color-scheme: light dark;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Readex Pro', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.5);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.8);
+}
+
+/* Rich Text Prose Styling (TipTap & HTML rendering) */
+.prose-custom {
+  color: inherit;
+  line-height: 1.8;
+}
+
+.prose-custom p {
+  margin-bottom: 0.75rem;
+}
+
+.prose-custom p:last-child {
+  margin-bottom: 0;
+}
+
+.prose-custom h1,
+.prose-custom h2,
+.prose-custom h3,
+.prose-custom h4 {
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #f59e0b;
+}
+
+.prose-custom h1 { font-size: 1.875rem; }
+.prose-custom h2 { font-size: 1.5rem; }
+.prose-custom h3 { font-size: 1.25rem; }
+
+.prose-custom ul {
+  list-style-type: disc;
+  margin-right: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-custom ol {
+  list-style-type: decimal;
+  margin-right: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-custom li {
+  margin-bottom: 0.25rem;
+}
+
+.prose-custom a {
+  color: #f59e0b;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.prose-custom a:hover {
+  color: #d97706;
+}
+
+.prose-custom blockquote {
+  border-right: 4px solid #f59e0b;
+  padding-right: 1rem;
+  font-style: italic;
+  opacity: 0.9;
+  margin: 1rem 0;
+}
+
+.prose-custom strong {
+  font-weight: 700;
+}
+
+/* Glassmorphism effects */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.dark .glass-panel {
+  background: rgba(18, 18, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+/* Subtle glow animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
+  }
+}
+
+.glow-amber {
+  animation: pulseGlow 3s infinite ease-in-out;
 }

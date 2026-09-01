@@ -1,33 +1,123 @@
 <template>
-  <div
-    class="image-container flex opacity-100 justify-center items-center text-black bg-white">
-    <img
-      v-for="(img, index) in images"
-      :key="index"
-      :src="img"
-      :class="{ active: index === activeIndex }"
-      alt="" />
-    <div
-      class="z-10 text-2xl flex flex-col items-center justify-center gap-10 w-3/4 h-full">
-      <p>
-        اهلا بك في
-        <span class="text-7xl text-amber-500"> بروج </span>
+  <section class="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden rounded-b-3xl shadow-2xl">
+    <!-- Slideshow Background Images -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <div
+        v-for="(img, index) in images"
+        :key="index"
+        class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 transform scale-105 ease-in-out"
+        :style="{ backgroundImage: `url(${img})` }"
+        :class="[
+          index === activeIndex ? 'opacity-100' : 'opacity-0',
+          index === activeIndex ? 'animate-subtle-zoom' : ''
+        ]"
+      ></div>
+
+      <!-- Gradient Overlays for Light/Dark Mode -->
+      <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-900/60 to-stone-950/70 dark:from-stone-950 dark:via-stone-950/70 dark:to-stone-950/80"></div>
+      <div class="absolute inset-0 bg-amber-500/5 mix-blend-overlay"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 py-16 text-center flex flex-col items-center justify-center gap-6 text-white">
+      <!-- Dynamic Announcement Pill / Offer -->
+      <Transition
+        enter-active-class="transition duration-500 ease-out"
+        enter-from-class="opacity-0 -translate-y-4"
+        enter-to-class="opacity-100 translate-y-0"
+      >
+        <div
+          v-if="content.hero.showOffer && offerText"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-500/40 text-amber-300 text-xs md:text-sm font-medium shadow-lg hover:bg-amber-500/30 transition-all cursor-default"
+        >
+          <span class="flex h-2 w-2 rounded-full bg-amber-400 animate-ping"></span>
+          <span>{{ offerText }}</span>
+        </div>
+      </Transition>
+
+      <!-- Badge Text -->
+      <div v-if="badgeText" class="text-xs md:text-sm tracking-wider uppercase text-amber-400/90 font-semibold">
+        {{ badgeText }}
+      </div>
+
+      <!-- Main Title -->
+      <div class="space-y-4 my-2">
+        <h2 class="text-xl md:text-3xl font-light text-stone-200">
+          {{ welcomePrefix }}
+        </h2>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-amber-400 drop-shadow-md tracking-normal">
+          <span class="hero-title-text">{{ brandName }}</span>
+        </h1>
+      </div>
+
+      <!-- Subtitle -->
+      <p class="max-w-2xl text-base md:text-xl text-stone-300 leading-relaxed font-normal">
+        {{ subtitle }}
       </p>
-      <p>طريقك إلى مكة والمدينة بكل سهولة</p>
-      <div class="bg-red rounded-xl bg-amber-400 px-4 py-2 flex flex-col gap-5" v-if="ads?.show">
-        <p class="text-xl text-black" > 
-         {{ ads.data }}
-          <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora fuga -->
-        </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-4">
+        <ULink
+          to="/#contactUs"
+          class="px-6 py-3 rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm md:text-base shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 hover:-translate-y-0.5 transition-all flex items-center gap-2"
+        >
+          <UIcon name="i-mdi-calendar-check" class="w-5 h-5" />
+          <span>{{ t.hero.bookNow }}</span>
+        </ULink>
+
+        <ULink
+          to="/#hotels"
+          class="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold text-sm md:text-base hover:-translate-y-0.5 transition-all flex items-center gap-2"
+        >
+          <UIcon name="i-mdi-domain" class="w-5 h-5 text-amber-400" />
+          <span>{{ t.hero.exploreServices }}</span>
+        </ULink>
+      </div>
+
+      <!-- Image Indicator Dots -->
+      <div class="flex items-center gap-2 mt-6">
+        <button
+          v-for="(_, idx) in images"
+          :key="idx"
+          class="h-1.5 rounded-full transition-all duration-300"
+          :class="idx === activeIndex ? 'w-6 bg-amber-400' : 'w-1.5 bg-white/40 hover:bg-white/70'"
+          @click="activeIndex = idx"
+          :aria-label="`Slide ${idx + 1}`"
+        ></button>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<script lang="ts" setup>
-import { ref, onMounted } from "vue";
+<script setup lang="ts">
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
+import { useCmsContent } from "~/composables/useCmsContent";
+import { useAppLang } from "~/composables/useAppLang";
 
-const images = [
+const { content } = useCmsContent();
+const { isEn, t } = useAppLang();
+
+const welcomePrefix = computed(() => {
+  return isEn.value ? (content.value.hero?.welcomePrefixEn || content.value.hero?.welcomePrefix) : content.value.hero?.welcomePrefix;
+});
+
+const brandName = computed(() => {
+  return isEn.value ? (content.value.hero?.brandNameEn || content.value.hero?.brandName) : content.value.hero?.brandName;
+});
+
+const subtitle = computed(() => {
+  return isEn.value ? (content.value.hero?.subtitleEn || content.value.hero?.subtitle) : content.value.hero?.subtitle;
+});
+
+const badgeText = computed(() => {
+  return isEn.value ? (content.value.hero?.badgeTextEn || content.value.hero?.badgeText) : content.value.hero?.badgeText;
+});
+
+const offerText = computed(() => {
+  return isEn.value ? (content.value.hero?.offerTextEn || content.value.hero?.offerText) : content.value.hero?.offerText;
+});
+
+const defaultImages = [
   "/9.jpeg",
   "/10.jpeg",
   "/11.jpeg",
@@ -47,65 +137,54 @@ const images = [
   "/test/7.jpeg",
   "/test/8.jpeg",
   "/test/20.jpeg",
-
-
-  // "https://www.emaaraldiyafa.com/Content/img/2.jpg",
-  // "https://www.emaaraldiyafa.com/Content/img/4.jpg",
-  // "https://www.emaaraldiyafa.com/Content/img/6.jpg",
-  // "https://www.emaaraldiyafa.com/Content/img/5.jpg",
 ];
 
+const images = computed(() => {
+  if (content.value?.hero?.images && content.value.hero.images.length > 0) {
+    return content.value.hero.images;
+  }
+  return defaultImages;
+});
+
 const activeIndex = ref(0);
+let timer: any = null;
 
 const startAnimation = () => {
-  setInterval(() => {
-    activeIndex.value = (activeIndex.value + 1) % images.length;
-  }, 3000); // Change image every 2 seconds
+  timer = setInterval(() => {
+    if (images.value.length > 0) {
+      activeIndex.value = (activeIndex.value + 1) % images.value.length;
+    }
+  }, 4000);
 };
 
 onMounted(() => {
   startAnimation();
 });
 
-import { collection, doc,  } from "firebase/firestore";
-const db = useFirestore();
-
-const ads = useDocument(doc(collection(db, 'assets'), 'lEJtgJXfx9SGM0COpYJB'))
+onBeforeUnmount(() => {
+  if (timer) clearInterval(timer);
+});
 </script>
 
 <style scoped>
-.image-container {
-  position: relative;
-  overflow: hidden;
+.hero-title-text {
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-bottom: 0.25em;
+  line-height: 1.35;
+  overflow: visible;
 }
 
-.image-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: all 3s;
-}
-.image-container p {
-  opacity: 100;
-}
-
-.image-container img.active {
-  opacity: 1;
-  animation: zoomIn 4s forwards;
-}
-
-@keyframes zoomIn {
+@keyframes subtleZoom {
   0% {
     transform: scale(1);
-    opacity: 0.75;
   }
   100% {
-    transform: scale(1.25);
-    opacity: 0.9;
+    transform: scale(1.08);
   }
+}
+
+.animate-subtle-zoom {
+  animation: subtleZoom 6s ease-out forwards;
 }
 </style>

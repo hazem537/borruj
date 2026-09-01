@@ -1,16 +1,15 @@
 <template>
-  <div  class="h-screen flex justify-center pt-[150px]">
-    <Dashboard  class="w-10/12"/>
-
+  <div class="min-h-screen py-6 px-4">
+    <Dashboard />
   </div>
 </template>
 
 <script lang="ts" setup>
 definePageMeta({
-  middleware:['auth']
-})
+  middleware: ["auth"],
+});
+
+useHead({
+  title: "لوحة التحكم وإدارة المحتوى - بروج المميزة للسياحة",
+});
 </script>
-
-<style>
-
-</style>
